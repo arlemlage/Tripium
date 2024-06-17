@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Console;
 
@@ -9,14 +10,30 @@ class Kernel extends ConsoleKernel
 {
     /**
      * Define the application's command schedule.
+     *
+     * @param Schedule $schedule
+     * @return void
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+         $schedule->command('email:send:by:time')->hourly();
+         $schedule->command('booking:send:notification')->everyMinute();
+         $schedule->command('remove:expired:closed:dates')->dailyAt('11:59');
+         $schedule->command('remove:expired:delivery:point:closed:dates')->dailyAt('11:59');
+         $schedule->command('remove:expired:stories')->dailyAt('11:59');
+         $schedule->command('remove:expired:master:disabled:times')->dailyAt('11:59');
+         $schedule->command('remove:expired:models')->hourly();
+         $schedule->command('booking:auto:ended')->hourly();
+         $schedule->command('remove:expired:master:closed:dates')->everySixHours();
+         $schedule->command('remove:expired:warehouse:closed:dates')->hourly();
+         $schedule->command('service:master:send:notification')->hourly();
+//         $schedule->command('truncate:telescope')->daily();
     }
 
     /**
      * Register the commands for the application.
+     *
+     * @return void
      */
     protected function commands(): void
     {

@@ -13,12 +13,20 @@ return [
     | a conventional file to locate the various service credentials.
     |
     */
+    'telegram-bot-api' => [
+        'token' => env('TELEGRAM_BOT_TOKEN', 'YOUR BOT TOKEN HERE')
+    ],
+
+    'twilio' => [
+        'account_id' => env('TWILIO_ACCOUNT_ID'),
+        'auth_token' => env('TWILIO_AUTH_TOKEN'),
+        'number'     => env('TWILIO_NUMBER'),
+    ],
 
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),
         'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
-        'scheme' => 'https',
     ],
 
     'postmark' => [
