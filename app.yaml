@@ -1,0 +1,42 @@
+runtime: php81  # version of php
+env: standard     # set app engine env to standard
+runtime_config:
+  document_root: .
+# for detecting static files in the public folder
+handlers:
+  - url: /(.*\.(gif|png|jpg|css|js))$
+    static_files: public/\1
+    upload: public/.*\.(gif|png|jpg|css|js)$
+  - url: /.*
+    secure: always
+    redirect_http_response_code: 301
+    script: auto
+env_variables:
+  APP_KEY: base64:/S0O2aKWb2RKcanHj6Ks3P8/uSI1LtACDuLpx/o/5rw=
+  APP_STORAGE: /tmp
+  VIEW_COMPILED_PATH: /tmp
+  APP_DEBUG: true
+  APP_ENV: production
+  APP_NAME: "Tripium"
+  APP_URL: ""
+  ASSET_URL: ""
+  SESSION_DRIVER: cookie
+  QUEUE_CONNECTION: sync
+  MAIL_MAILER: smtp
+  MAIL_HOST: ""
+  MAIL_PORT: 465
+  MAIL_USERNAME: ""
+  MAIL_PASSWORD: ""
+  MAIL_ENCRYPTION: ssl
+  MAIL_FROM_ADDRESS:
+  MAIL_FROM_NAME: "Tripium"
+  PUSHER_APP_ID:
+  PUSHER_APP_KEY:
+  PUSHER_APP_SECRET:
+  PUSHER_APP_CLUSTER: mt1
+  APP_SERVICES_CACHE: /tmp/services.php
+  APP_PACKAGES_CACHE: /tmp/packages.php
+  APP_CONFIG_CACHE: /tmp/config.php
+  APP_ROUTES_CACHE: /tmp/routes.php
+build_env_variables:
+  GOOGLE_COMPOSER_VERSION: 2.5.8
