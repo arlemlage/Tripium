@@ -40,3 +40,4 @@ env_variables:
   APP_ROUTES_CACHE: /tmp/routes.php
 build_env_variables:
   GOOGLE_COMPOSER_VERSION: 2.5.8
+  GOOGLE_RUNTIME_VERSION: 1.21
