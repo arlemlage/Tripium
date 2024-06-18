@@ -18,6 +18,7 @@
         "ext-gd": "*",
         "ext-json": "*",
         "ext-simplexml": "*",
+        "ext-sodium": "*",
         "ext-zip": "*",
         "aws/aws-sdk-php": "^3.300.11",
         "barryvdh/laravel-snappy": "^1.0.0",
